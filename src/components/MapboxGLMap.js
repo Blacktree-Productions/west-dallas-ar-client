@@ -13,14 +13,13 @@ const MapboxGLMap = () => {
   const mapContainer = useRef(null);
 
   useEffect(() => {
-    mapboxgl.accessToken =
-      "{accessToken}";
+    mapboxgl.accessToken =process.env.REACT_APP_MAPBOX_KEY;
     const initializeMap = ({ setMap, mapContainer }) => {
       const map = new mapboxgl.Map({
         container: mapContainer.current,
         style: "mapbox://styles/mapbox/streets-v11", // stylesheet location
-        center: [-96.8, 32.7],
-        zoom: 5
+        center: [-96.90609, 32.7796],
+        zoom: 14
       });
 
       map.on("load", () => {

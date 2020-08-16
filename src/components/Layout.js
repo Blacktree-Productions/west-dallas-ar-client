@@ -5,8 +5,9 @@ import { MapboxGLMap } from ".";
 
 const Header = styled("header")`
   width: 100vw;
-  height: 80px;
-  border-bottom: 2px solid #222;
+  height: 100px;
+  background-color: grey;
+  opacity: 0.5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,7 +17,7 @@ const Layout = () => {
   return (
     <>
       <Header>
-        <h1>West Dallas</h1>
+        <h1>*.*</h1>
       </Header>
       <main>
         <MapboxGLMap />
