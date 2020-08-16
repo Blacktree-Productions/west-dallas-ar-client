@@ -1,13 +1,13 @@
-West Dallas AR client for local development
+## West Dallas AR client for local development
 
 All assets are Creative Commons liscensed and all code is GPLv3 
 
 to use code do the following 
 
-npm install 
-move contents of env.example into a .env file in the root directory 
-replace "mapbox secret key!" with your Mapbox API Token 
-then run one of the scripts
+npm install <br />
+move contents of env.example into a .env file in the root directory <br />
+replace "mapbox secret key!" with your Mapbox API Token <br />
+then run one of the scripts<br />
 
 
 ## Available Scripts
