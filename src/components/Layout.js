@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
 import { MapboxGLMap } from ".";
 
 const Header = styled("header")`
@@ -20,7 +19,9 @@ const Layout = () => {
         <h1>*.*</h1>
       </Header>
       <main>
-        <MapboxGLMap />
+        <MapboxGLMap> 
+
+        </MapboxGLMap> 
       </main>
     </>
   );
