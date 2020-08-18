@@ -7,7 +7,7 @@ import fetchFakeData from "../api/fetchFakeData";
 
 const styles = {
   width: "100vw",
-  height: "calc(100vh - 80px)",
+  height: "100vh",
   position: "absolute"
 };
 
@@ -91,12 +91,6 @@ const MapboxGLMap = () => {
             .addTo(map);
         }
       });
-      
-      // map.on("load", () => {
-
-      //   setMap(map);
-      //   map.resize();
-      // });
     };
 
     if (!map) initializeMap({ setMap, mapContainer });
