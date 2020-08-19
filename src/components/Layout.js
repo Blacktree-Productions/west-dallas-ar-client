@@ -1,14 +1,16 @@
 import React from "react";
 import Swiper from 'react-id-swiper';
 import { MapboxGLMap } from ".";
+import 'swiper/swiper-bundle.css';
+import './styles.css';
+// import MapboxGLMap from "./MapboxGLMap";
+
 
 const Layout = () => (
   <Swiper>
-    <div>Slide #1</div>
-    <div>Slide #2</div>
-    <div>Slide #3</div>
-    <div><MapboxGLMap/></div>
-    <div>Slide #5</div>
+    <div ><h1>West Dallas AR</h1></div>
+    <div >Land Acknowledgement</div>
+    <div ><MapboxGLMap/></div>
   </Swiper>
 );
 
