@@ -7,8 +7,8 @@ import fetchFakeData from "../api/fetchFakeData";
 
 const styles = {
   width: "100vw",
-  height: "100vh",
-  position: "absolute"
+  height: "80vh",
+  // position: "absolute"
 };
 
 const MapboxGLMap = () => {
