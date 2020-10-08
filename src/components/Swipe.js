@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.scss';
-import { SwipeContext } from './App/App';
+import { SwipeContext } from '../containers/App';
 
 const Swipe = () => {
     const { setSlide } = useContext(SwipeContext);

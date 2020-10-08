@@ -1,9 +1,9 @@
 import React, { useState, createContext } from "react";
-import Swipe from "../Swipe";
+import Swipe from "../../components/Swipe";
 import { Switch, Route } from 'react-router-dom';
-import Explore from "../explore/explore";
-import About from "../about/about";
-import Change from "../change/change";
+import Explore from "../../components/explore/explore";
+import About from "../../components/about/about";
+import Change from "../../components/change/change";
 
 export const SwipeContext = createContext();
 

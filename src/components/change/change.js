@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Nav from "../nav/nav";
 import Float from "../float/float";
-import { SwipeContext } from "../App/App" ;
+import { SwipeContext } from "../../containers/App" ;
 
 
 const Change = () => {

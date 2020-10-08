@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { SwipeContext } from "../App/App";
+import { SwipeContext } from "../../containers/App";
 // import "float.css";
 
 
