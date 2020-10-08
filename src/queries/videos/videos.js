@@ -2,8 +2,8 @@ import gql from "graphql-tag";
 
 const VIDEOS_QUERY = gql`
   query Videos {
-    Videos {
-      Id
+    videos {
+      id
       Title
       description
       geometry

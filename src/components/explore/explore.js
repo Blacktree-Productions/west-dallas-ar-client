@@ -1,10 +1,19 @@
 import React from "react";
-import MapboxGLMap from "../MapboxGLMap";
+import Map from "../map";
+import Query from "../Query";
+import VIDEOS_QUERY from "../../queries/videos/videos";
+
+
 
 
 const Explore = () => (
     <section>
-      <MapboxGLMap/>  
+      {/* <Map/>   */}
+      <Query query={VIDEOS_QUERY}>
+        {({ data: { videos } }) => {
+            return <Map videos={videos} />;
+        }}
+      </Query> 
     </section>   
 );
 
