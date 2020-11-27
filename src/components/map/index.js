@@ -34,7 +34,11 @@ const Map = ({ markers }) => {
         // const geometry = markers
         // geometry.forEach(el => {
         //   console.log(el.geometry)
-        console.log(markers) 
+         
+        markers.forEach( el => {
+          console.log( el.id, el.geometry, el.clip.url, el.description
+             )
+        })
         // });
         setMap(map);
         map.resize();
