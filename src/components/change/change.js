@@ -6,6 +6,7 @@ import { SwipeContext } from "../../containers/App" ;
 
 const Change = () => {
     const { slide } = useContext(SwipeContext);
+    console.log(slide);
     if (slide === 2 ) {
         return(
             <Nav/>
