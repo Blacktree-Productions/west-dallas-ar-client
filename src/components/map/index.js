@@ -1,25 +1,27 @@
-// import ReactDOM from "react-dom";
-import React, { useEffect, useRef, useState } from "react";
+import ReactDOM from "react-dom";
+import React, { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-// import Marker from "../Markers/index"
+import Marker from "../Markers/index"
+import "./map.css"
+
 // import Popup from "../popup";
 // import fetchFakeData from "../../api/fetchFakeData";
 
-const styles = {
-  width: "100vw",
-  height: "80vh",
-  // position: "absolute"
-};
+// const styles = {
+//   width: "100vw",
+//   height: "80vh",
+
+// };
 
 const Map = ({ markers }) => {
-  const [map, setMap] = useState(null);
+  // const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
   // const popUpRef = useRef(new mapboxgl.Popup({ offset: 15 }));
 
   useEffect(() => {
     mapboxgl.accessToken =process.env.REACT_APP_MAPBOX_KEY;
-    const initializeMap = ({ setMap, mapContainer }) => {
+    // const initializeMap = ({ setMap, mapContainer }) => {
       const map = new mapboxgl.Map({
         container: mapContainer.current,
         style: "mapbox://styles/roamopen/ckdvus6oi106319qoyiofra1q", // stylesheet location
@@ -36,11 +38,17 @@ const Map = ({ markers }) => {
         //   console.log(el.geometry)
          
         markers.forEach( el => {
-          console.log( el.id, el.geometry, el.clip.url, el.description
-             )
-        })
+          const markerNode = document.createElement('div');
+          ReactDOM.render(<Marker id={el.id} description={el.description} video={el.clip.url}/>, markerNode);
+
+          new mapboxgl.Marker(markerNode)
+            .setLngLat(el.geometry.coordinates)
+            .addTo(map);
+          // console.log( el.id, el.geometry,  el.clip.url, el.description
+          //    )
+        });
         // });
-        setMap(map);
+        // setMap(map);
         map.resize();
         // data source for new feature collection
         // map.addSource('video-points-data', {
@@ -87,12 +95,14 @@ const Map = ({ markers }) => {
       //       .addTo(map);
       //   }
       // });
-    };
+    // };
 
-    if (!map) initializeMap({ setMap, mapContainer });
-  }, [map]);
+    // clean up on unmount 
+    return () => map.remove();
+    // if (!map) initializeMap({ setMap, mapContainer });
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  return <div ref={el => (mapContainer.current = el)} style={styles} />;
+  return <div className="map" ref={mapContainer}  />;
 };
 
 export default Map;

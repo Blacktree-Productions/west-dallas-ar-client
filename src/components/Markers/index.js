@@ -3,33 +3,37 @@ import "./marker.css";
 // import reactDOM from "react-dom"
 // import Video from "../video/video";
 
-const videoType = () => {
-    console.log ( "video")
+const videoType = (props) => {
+    console.log (props)
     return (
-        <div>
-          
+        <div className="video">
+      {props.description}
         </div>
     );
 }
     
 
-const handleClick = () => {
+const handleClick = (props) => {
     return(
-    console.log("clicked"),
-    videoType()
+    console.log(props),
+    videoType(props)
     )
 }
 
 
-const Marker = ({ id }) => (
+const Marker = ({ id, description, video }) => {
 
+  console.log(id, description, video)
+  return(
   <div 
-    id={`marker-${id}`} 
-    onClick={handleClick} 
+    id={id} 
+    description={description}
+    onClick={() => handleClick({description, video})} 
     className="marker" >
-
-
-  </div>);
+  </div>
+  
+  );
+};
 
 
 export default Marker;

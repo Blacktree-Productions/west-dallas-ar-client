@@ -12,3 +12,11 @@
   width: 100px;
   height: 100px;
 }
+
+.video {
+  background-color: rgb(174, 199, 191);
+  position: relative;
+  z-index: 4;
+  width: 500px;
+  height: 500px;
+}
