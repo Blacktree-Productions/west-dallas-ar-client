@@ -2,19 +2,19 @@ import React from "react";
 import Map from "../map";
 import Query from "../Query";
 import MARKERS_QUERY from "../../queries/markers/markers";
-
+import "./explore.css";
 
 
 
 const Explore = () => (
-    <section>
-      {/* <Map/>   */}
+
       <Query query={MARKERS_QUERY}>
         {({ data: { markers } }) => {
-            return <Map markers={markers} />;
+            return (
+            <Map markers={markers} className="map-container" />)
         }}
       </Query> 
-    </section>   
+   
 );
 
 export default Explore;

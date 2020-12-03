@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { SwipeContext } from "../../containers/App";
+import Box from '@material-ui/core/Box';
 // import "float.css";
 
 
@@ -8,17 +9,35 @@ const Float = () => {
 
         if (slide === 0 ){
             return ( 
-                <div className="float">
+                <Box 
+                  bgcolor="background.paper"
+                  color="text.primary"
+                  p={2}
+                  position="absolute"
+                  top={40}
+                  left="40%"
+                  zIndex="tooltip"
+
+                >
                     <h1>ENTER</h1>
                     <p>and such and such...</p>
-                </div>
+                </Box>
             )
         } else{
             return (
-                <div className="float">
+                <Box 
+                  bgcolor="background.paper"
+                  color="text.primary"
+                  p={2}
+                  position="absolute"
+                  top={40}
+                  left="40%"
+                  zIndex="tooltip"
+
+                >
                     <h2>something else</h2>
                     <p>more stuff</p>
-                </div>
+                </Box>
             )    
         }
 };

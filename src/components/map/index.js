@@ -2,8 +2,14 @@ import ReactDOM from "react-dom";
 import React, { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import Marker from "../Markers/index"
-import "./map.css"
+import Marker from "../Markers/index";
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+import Box from '@material-ui/core/Box';
+import "./map.css";
 
 // import Popup from "../popup";
 // import fetchFakeData from "../../api/fetchFakeData";
@@ -29,14 +35,8 @@ const Map = ({ markers }) => {
         zoom: 12.75
       });
 
-       // add navigation control (zoom buttons) : todo remove before prod
-    //   map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
-
       map.on("load", () => {
-        // const geometry = markers
-        // geometry.forEach(el => {
-        //   console.log(el.geometry)
-         
+
         markers.forEach( el => {
           const markerNode = document.createElement('div');
           ReactDOM.render(<Marker id={el.id} description={el.description} video={el.clip.url}/>, markerNode);
@@ -44,65 +44,44 @@ const Map = ({ markers }) => {
           new mapboxgl.Marker(markerNode)
             .setLngLat(el.geometry.coordinates)
             .addTo(map);
-          // console.log( el.id, el.geometry,  el.clip.url, el.description
-          //    )
+
         });
-        // });
-        // setMap(map);
+
         map.resize();
-        // data source for new feature collection
-        // map.addSource('video-points-data', {
-        //   type: 'geojson',
-        //   data: {
-        //     type: 'FeatureCollection',
-        //     features: [],
-        //   },
-        // });
 
-        // fetch graphQl data
-       
-
-        // map.getSource('video-points-data').setData({
-          
-        // })
-        // now add the layer, and reference the data source above by name
-      // map.addLayer({
-      //   id: "video-points-layer",
-      //   source: "video-points-data",
-      //   type: "symbol",
-      //   layout: {
-      //     "icon-image": "bakery-15", // this will put little croissants on our map
-      //     "icon-padding": 0,
-      //     "icon-allow-overlap": true
-      //   }
-      // });
     });
-
-      // add popup when user clicks a point
-      // map.on("click", "video-points-layer", e => {
-      //   markers.forEach(el => {
-      //     console.log(el.clip)
-      //   })
-      //   if (e.features.length) {
-      //     const feature = e.features[0];
-      //     // create popup node
-      //     const popupNode = document.createElement("div");
-      //     ReactDOM.render(<Popup feature={feature} />, popupNode);
-      //     // set popup on map
-      //     popUpRef.current
-      //       .setLngLat(feature.geometry.coordinates)
-      //       .setDOMContent(popupNode)
-      //       .addTo(map);
-      //   }
-      // });
-    // };
 
     // clean up on unmount 
     return () => map.remove();
     // if (!map) initializeMap({ setMap, mapContainer });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  return <div className="map" ref={mapContainer}  />;
+  const [value, setValue] = React.useState('english');
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
+  return (
+    <div className="map" ref={mapContainer}> 
+      <Box
+        css={{ bgcolor: 'Bisque', opacity: .95, padding: 10  }}
+        color="grey"
+        position="absolute"
+        top={10}
+        right={10}
+        zIndex="tooltip"
+      >
+        <FormControl component="fieldset" >
+          <FormLabel component="legend">Language</FormLabel>
+          <RadioGroup aria-label="language" name="language" value={value} onChange={handleChange}>
+            <FormControlLabel value="english"  control={<Radio />} label="English" />
+            <FormControlLabel value="spanish"  control={<Radio />} label="Spanish" />
+          </RadioGroup>
+        </FormControl>  
+      </Box>
+
+    </div>)
 };
 
 export default Map;

@@ -1,5 +1,5 @@
 import React, { useState, createContext } from "react";
-import Swipe from "../../components/Swipe";
+import Swipe from "../../components/swipe/Swipe";
 import { Switch, Route } from 'react-router-dom';
 import Explore from "../../components/explore/explore";
 import About from "../../components/about/about";

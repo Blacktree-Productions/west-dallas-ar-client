@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.scss';
-import { SwipeContext } from '../containers/App';
+import { SwipeContext } from '../../containers/App/index';
 
 const Swipe = () => {
     const { setSlide } = useContext(SwipeContext);
@@ -10,7 +10,7 @@ const Swipe = () => {
     };
     return (
         <Swiper
-          style={{height: "300px", backgroundColor: "grey"}}
+          style={{height: "800px", backgroundColor: "grey"}}
           spaceBetween={50}
           slidesPerView={1}
           onSlideChange={(swiper) => update(swiper.activeIndex)}

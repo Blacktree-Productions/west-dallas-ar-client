@@ -1,4 +1,6 @@
 import React from "react";
+import { makeStyles } from '@material-ui/core/styles';
+import Modal from '@material-ui/core/Modal';
 import "./marker.css";
 // import reactDOM from "react-dom"
 // import Video from "../video/video";
@@ -13,7 +15,8 @@ const videoType = (props) => {
 }
     
 
-const handleClick = (props) => {
+const handleOpen = (props) => {
+    // setOpen(true);
     return(
     console.log(props),
     videoType(props)
@@ -28,9 +31,10 @@ const Marker = ({ id, description, video }) => {
   <div 
     id={id} 
     description={description}
-    onClick={() => handleClick({description, video})} 
+    onClick={() => handleOpen({description, video})} 
     className="marker" >
   </div>
+
   
   );
 };

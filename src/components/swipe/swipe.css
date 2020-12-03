@@ -1,6 +1,6 @@
 html, body {
     position: relative;
-    height: auto;
+    /* height: 1000px; */
   }
   body {
     background: #eee;
@@ -10,9 +10,13 @@ html, body {
     margin: 0;
     padding: 0;
   }
+  .swiper {
+    background-color: aquamarine;
+    height: 800px
+  }
   .swiper-container {
     width: 100%;
-    height: 600px;
+    height: 800px;
   }
   .swiper-slide {
     text-align: center;

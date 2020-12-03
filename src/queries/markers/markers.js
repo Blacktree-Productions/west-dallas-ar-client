@@ -9,7 +9,7 @@ const MARKERS_QUERY = gql`
         geometry
         language {
             id
-            Type
+            type
           }
           clip {
             id
